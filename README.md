@@ -1,29 +1,20 @@
 # Do List
 
-A to-do list for the Mac that gets out of your way.
-
-Press **⌃⌥T** from anywhere, type the thing, press Return. That's the whole idea.
-
----
+A to-do list for the Mac that stays out of your way. Press **⌃⌥T** from anywhere, type the thing, press Return.
 
 ## Why another to-do app?
 
-Most to-do apps start simple and then keep going. Projects, tags, priorities, due dates, reminders, a sidebar, an inbox, a sync account, a subscription. After a while you spend more time looking after the list than doing what's on it.
+Most to-do apps start simple and keep growing until they have projects, tags, priorities, due dates, reminders, an inbox and a subscription. After a while you spend more time looking after the list than doing what's on it.
 
-Do List is the opposite. It's one list. You add things, you tick them off, they go away. There's nothing to organise and nothing to set up, so there's nothing to fall behind on.
+Do List is one list. You add things and tick them off, and they go away. There's nothing to organise or set up, so there's nothing to fall behind on.
 
-What it does have is the small stuff done properly:
+The effort went into the small things you do fifty times a day. One shortcut opens the window from any app with the cursor already in the input, and the same shortcut hides it again. When the window is in front you can just start typing and it becomes a new task, without clicking a "+" first. There's also a ✓ in the menu bar: click it and your list drops down over whatever you're doing, and the app you were in keeps focus.
 
-- **It's fast to reach.** One shortcut opens it from any app, with the cursor already in the input. Press it again and it's gone.
-- **You can just start typing.** Whenever the window is in front, typing goes straight into a new task. No clicking a "+" first.
-- **It lives in the menu bar too.** Click the ✓ icon and your list drops down without pulling you out of whatever you were doing.
-- **Done means done.** Completed tasks slide below a divider and quietly clear at midnight. They aren't deleted. History keeps them, searchable, if you ever need to look back.
-- **Undo works on everything.** Added the wrong thing, deleted the right thing, dragged something to the bottom by accident: ⌘Z.
-- **It feels like a Mac app** because it is one. Native window, system appearance, proper keyboard support, VoiceOver labels.
+Finished tasks slide below a divider and clear at midnight. They aren't deleted, so if you need to check when you did something, History has them all, grouped by day and searchable. Undo covers everything, including the task you deleted by mistake and the one you dragged to the bottom.
 
-And just as important is what it doesn't do. There's no account, no sync, no analytics, no network code at all. Your tasks sit in a small SQLite file on your Mac and never go anywhere else.
+It's written in Swift with native windows, so it follows your system appearance, works from the keyboard and labels everything for VoiceOver.
 
----
+Do List has no account, sync or analytics, and no network code at all. Your tasks live in a small SQLite file on your Mac.
 
 ## Install
 
@@ -31,13 +22,13 @@ You'll need macOS 14 Sonoma or later.
 
 ### Download
 
-Download the zip from the [latest release](../../releases/latest), unzip it and drag **Do List** into Applications.
+Download the zip from the [latest release](../../releases/latest), unzip it and drag Do List into Applications.
 
-The app isn't notarised by Apple (that needs a paid developer account), so the first time you open it macOS will say it can't check it. Either right-click the app and choose **Open**, or go to System Settings › Privacy & Security and click **Open Anyway**. You only have to do this once.
+The app isn't notarised (that needs a paid Apple developer account), so the first time you open it macOS will say it can't check it. Right-click the app and choose Open, or go to System Settings › Privacy & Security and click Open Anyway. You only have to do this once.
 
 ### Build it yourself
 
-All you need is the Xcode Command Line Tools (Swift 6). Full Xcode is optional.
+You need the Xcode Command Line Tools (Swift 6). Full Xcode is optional.
 
 ```bash
 git clone https://github.com/bendrvry/do-list.git
@@ -45,7 +36,7 @@ cd do-list
 ./scripts/build-app.sh --install
 ```
 
-That builds a release copy, signs it ad hoc and puts it in `/Applications`. Leave off `--install` if you'd rather just get `build/Do List.app` and a zip next to it.
+That builds a release copy, signs it ad hoc and puts it in `/Applications`. Leave off `--install` if you only want `build/Do List.app` and a zip next to it.
 
 To run the tests:
 
@@ -53,21 +44,19 @@ To run the tests:
 ./scripts/test.sh
 ```
 
----
-
 ## Using it
 
 | | |
 |---|---|
-| **Add** | Type and press Return. If the window's in front, you can start typing without clicking anything. |
-| **Complete** | Click the circle, or select the task and press Space. |
-| **In progress** | Right-click a task and choose Mark In Progress, so you can see what you're in the middle of. |
-| **Edit** | Double-click the text, or select it and press Return. Escape cancels. |
-| **Reorder** | Drag it, or use ⌘↑ and ⌘↓. |
-| **Everything else** | Right-click for Duplicate, Move Up / Down, Mark Incomplete and Delete. |
-| **History** | ⇧⌘H shows finished tasks grouped by day, with search. Hover one and click Restore to put it back on the list. |
+| Add | Type and press Return. If the window's in front, you don't need to click into the input first. |
+| Complete | Click the circle, or select the task and press Space. |
+| In progress | Right-click a task and choose Mark In Progress to flag what you're in the middle of. |
+| Edit | Double-click the text, or select the task and press Return. Escape cancels. |
+| Reorder | Drag it, or use ⌘↑ and ⌘↓. |
+| Everything else | Right-click for Duplicate, Move Up / Down, Mark Incomplete and Delete. |
+| History | ⇧⌘H shows finished tasks grouped by day, with search. Hover one and click Restore to put it back on the list. |
 
-The first time you open Do List, one line at the bottom of the window asks if it should open at login. Nothing gets registered unless you say yes.
+The first time you open Do List, a line at the bottom of the window asks whether it should open at login. Nothing gets registered unless you say yes.
 
 ### Keyboard shortcuts
 
@@ -90,30 +79,23 @@ The first time you open Do List, one line at the bottom of the window asks if it
 
 ### Settings
 
-There aren't many, on purpose.
+I've kept these to a minimum. In Settings you can turn on open at login, change the global shortcut, hide the menu bar icon, keep the window on top of other apps, and pick light, dark or the system appearance.
 
-- **Open at login**, the **global shortcut**, and whether to **show the menu bar icon**.
-- **Keep window on top**, for people who like their list always visible.
-- **Appearance:** follow the system, or force light or dark.
-- **What happens to finished tasks.** They can drop to the bottom or stay where they were. They can clear at midnight, after seven days, or never. And you can choose whether "a day" means a calendar day or 24 hours.
-
----
+The rest is about finished tasks. They can drop to the bottom of the list or stay where they were, and they can clear at midnight, after seven days or never. You can also choose whether a day means the calendar day or a full 24 hours.
 
 ## Your data
 
-Tasks are stored in `~/Library/Application Support/app.dolist.mac/Tasks.sqlite`. Settings use the normal macOS defaults system under `app.dolist.mac`. That's it. Nothing is uploaded, synced or tracked.
+Tasks are stored in `~/Library/Application Support/app.dolist.mac/Tasks.sqlite`, and settings go in the normal macOS defaults under `app.dolist.mac`. Nothing leaves your Mac.
 
-If you want to try a build without touching your real list, point it at a scratch folder:
+To try a build without touching your real list, point it at a scratch folder:
 
 ```bash
 STILL_DATA_DIR=/tmp/dolist-dev "build/Do List.app/Contents/MacOS/Do List"
 ```
 
----
-
 ## How it's built
 
-It's a Swift package: SwiftUI for the views, AppKit for windows, menus and the menu bar, and SQLite (through the system library, no dependencies) for storage. Inside the code the project still goes by its working name, **Still**. You won't see that name anywhere in the app.
+It's a Swift package with no dependencies. SwiftUI draws the views, AppKit handles the windows, menus and menu bar, and storage uses the SQLite library that ships with macOS. The code still uses the working name, Still, but that name doesn't appear anywhere in the app.
 
 ```
 Sources/
@@ -123,28 +105,24 @@ Tests/         Swift Testing suite for StillCore
 scripts/       build-app.sh, test.sh, make-icon.swift
 ```
 
-A few choices worth knowing about if you're reading the code:
+Some things that help if you're reading the code:
 
-- **Every change goes through one place.** The UI never talks to SQLite directly. It calls `TaskStore`, where each operation is a single transaction that also records its own undo step. Anything added later, like Shortcuts support, would go through the same door.
-- **Nothing happens at midnight.** Whether a finished task is visible is worked out from its timestamps, your settings and the current time. No rows get moved or deleted. A single timer wakes the app at the next moment the list could change, rather than polling, and daylight-saving changes are handled.
-- **The global shortcut uses Carbon's `RegisterEventHotKey`**, so it doesn't need Accessibility or Input Monitoring permission.
-- **The menu bar dropdown is a non-activating panel**, the same trick Spotlight uses. It takes your typing without stealing focus from the app you were in.
-- **It refuses to make things worse.** If the database is damaged, or was written by a newer version, Do List tells you where the file is and quits without changing it.
+- The UI never talks to SQLite directly. Every change goes through `TaskStore`, where each operation runs as one transaction and records its own undo step. Anything added later, such as Shortcuts support, would call the same methods.
+- Whether a finished task is visible is worked out from its timestamps, your settings and the current time, so nothing gets moved or deleted at midnight. One timer wakes the app at the next moment the list could change, and daylight-saving changes are accounted for.
+- The global shortcut uses Carbon's `RegisterEventHotKey`, so it doesn't need Accessibility or Input Monitoring permission.
+- The menu bar dropdown is a non-activating panel, which is how Spotlight works too. It takes your typing while the app you were in keeps focus.
+- If the database is damaged or was written by a newer version, Do List tells you where the file is and quits without changing it.
 
-The test suite covers task operations, undo and redo, ordering, every retention setting, daylight-saving and time-zone changes, history search and paging, and a 20,000-task history to keep an eye on speed.
+The tests cover the task operations, undo and redo, ordering, each retention setting, daylight-saving and time-zone changes, and history search and paging. One test fills the history with 20,000 tasks to check it stays fast.
 
-If you're curious about hooking it up to Shortcuts, a command-line tool or an MCP server, [docs/FUTURE_INTEGRATIONS.md](docs/FUTURE_INTEGRATIONS.md) sketches out how that would work.
-
----
+[docs/FUTURE_INTEGRATIONS.md](docs/FUTURE_INTEGRATIONS.md) sketches how Shortcuts, a command-line tool or an MCP server could be added.
 
 ## Known limitations
 
-- Search ignores case for plain English letters only (it uses SQLite's `LIKE`).
+- Search only ignores case for unaccented letters, because it uses SQLite's `LIKE`.
 - A task is one line. If you paste several lines, they're joined into one task.
-- History shows tasks that are currently finished. It isn't a log, so restoring a task takes it out of History.
-- Open at Login remembers where the app was when you turned it on. Move the app to Applications first.
-
----
+- History shows tasks that are finished right now, so restoring a task takes it out of History.
+- Open at Login remembers where the app was when you turned it on, so move the app to Applications first.
 
 ## License
 
