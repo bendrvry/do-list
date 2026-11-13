@@ -31,7 +31,7 @@ You'll need macOS 14 Sonoma or later.
 
 ### Download
 
-Grab `Do List.zip` from the [latest release](../../releases/latest), unzip it and drag **Do List** into Applications.
+Download the zip from the [latest release](../../releases/latest), unzip it and drag **Do List** into Applications.
 
 The app isn't notarised by Apple (that needs a paid developer account), so the first time you open it macOS will say it can't check it. Either right-click the app and choose **Open**, or go to System Settings › Privacy & Security and click **Open Anyway**. You only have to do this once.
 
